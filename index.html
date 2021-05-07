@@ -1,0 +1,161 @@
+<html>
+	<div id="page-wrapper">
+		<section class="color-me" data-image="url(./hero.png)">
+			<h1>Come Visit Saturn!</h1>
+			<h2> Trips provided by SET, inc. <h2>
+		</section>
+		<section class="color-me">
+			<h1>9.5 AU away from the sun, so bundle up!</h1>
+		</section>
+		<section class="color-me" >
+		  <h1>The Average Temperature: -138 degrees Celsius</h1>
+		</section>
+		<section class="color-me" >
+		  <h1>1 Saturn Year = 29.45 Earth Years</h1>
+		</section>
+		<section class="color-me" data-image="url(./Four_Days_At_Saturn.gif)">
+		  <h1>Rotational period (length of day in Earth hours or days)</h1> 
+		  <h2>10.7 Hours (2nd shortest in solar system)</h2>
+		</section>
+		<section class="color-me" >
+		  <h1>Main components of the atmosphere are Hydrogen and Helium.</h1>
+		</section>
+		<section class="color-me" >
+		  <h1>Gravity 10.4 m/s^2</h1>
+		</section>
+		<section class="color-me" >
+		  <h1>82 moons!</h1>
+		</section>
+		<section class="color-me" data-image="url(./rings.gif)">
+		  <h1>Beautiful rings surround the planet!</h1>
+		</section>
+		  <section class="color-me" data-image="url(./saturn.gif)">
+		  <h1>Beware, there is a big storm at 75° N</h1>
+		</section>
+		<section class="color-me" data-image="url(./starman.jpg)">
+		  <h1>Place your order now!</h1>
+		  <a class ='order-button' href="mailto:SET.inc.orders@gmail.com?subject=Saturn%20Trip%20Order!">Begin</a>
+		</section>
+	</div>
+	
+
+</html>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: grey;
+  font-family: sans-serif;
+  color: white;
+  transition: background-color 1s;
+   background-image: "url(./hero.png)";
+ 
+}
+
+.order-button {
+display: inline-block;
+  padding:auto;
+  position:relative;
+  left:50%;
+  top:10%;
+border:0.1em solid #FFFFFF;
+margin:-100px 0 0 -100px;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+text-align:center;
+transition: all 0.2s;
+width:200px;
+height:75px;
+font-size: 48px;
+}
+.order-button:hover {
+color:#000000;
+background-color:#FFFFFF;
+}
+
+#page-wrapper {
+ 
+   height:100%; 
+			margin:0;
+			 background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:scroll;
+			overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+  transition: background-color 1s;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 90vh;
+  margin: 1vh;
+  padding: 2em;
+  width: 90vw;
+  text-align: center;
+}
+
+h1 {
+font-size: 48px;
+
+}
+</style>
+<script>
+var cssChangeTarget,
+    watchedElems,
+    config = {
+      selector: '.color-me', // This is the CSS selector who what to watch as the page is scrolled.
+      dataAttr: 'image', // This is the data attribute to read. Don't use the "data-" portion. E.g. use "color" not "data-color", etc.
+      targetElem: '#page-wrapper', // This element gets its CSS changed.
+			cssProp: 'backgroundImage', // Which CSS property gets changed. Use JS style not CSS style. E.g. use "backgroundColor" not "background-color", etc.
+      threshold: 1.0, // 1.0 = 100% in view,
+			enableWillChange: true, // Advanced use only. Enabling may improve performance. See https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+			willChangeProp: 'background' // Advanced use only. Because 'will-change: background-color' is invalid. 
+    };
+
+function createObserver() {
+  var observer;
+
+  var options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: config.threshold
+  };
+
+  observer = new IntersectionObserver(handleIntersect, options);
+  
+  watchedElems.forEach(elem => {
+    observer.observe(elem);
+  });
+}
+
+function handleIntersect(entries, observer) {
+  entries.forEach(function(entry) {
+    var newValue = entry.target.dataset[config.dataAttr];
+    cssChangeTarget.style[config.cssProp] = newValue;
+  });
+}
+
+// Set things up.
+window.addEventListener("load", function(event) {
+    cssChangeTarget = document.querySelector(config.targetElem);
+		if (config.enableWillChange) cssChangeTarget.style.willChange = config.willChangeProp;
+    watchedElems = document.querySelectorAll(config.selector);
+    createObserver();
+  }, false);
+
+</script>
