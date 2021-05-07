@@ -1,4 +1,9 @@
 <html>
+<link rel="preload" as="image" href="./hero.png">
+<link rel="preload" as="image" href="./Four_Days_At_Saturn.gif">
+<link rel="preload" as="image" href="./rings.gif">
+<link rel="preload" as="image" href="./saturn.gif">
+<link rel="preload" as="image" href="./starman.gif">
 	<div id="page-wrapper">
 		<section class="color-me" data-image="url(./hero.png)">
 			<h1>Come Visit Saturn!</h1>
@@ -19,15 +24,16 @@
 		</section>
 		<section class="color-me" >
 		  <h1>Main components of the atmosphere are Hydrogen and Helium.</h1>
-		</section>
+		
 		<section class="color-me" >
 		  <h1>Gravity 10.4 m/s^2</h1>
 		</section>
+		</section>
+				<section class="color-me" data-image="url(./rings.gif)">
+		  <h1>Beautiful rings surround the planet!</h1>
+		</section>
 		<section class="color-me" >
 		  <h1>82 moons!</h1>
-		</section>
-		<section class="color-me" data-image="url(./rings.gif)">
-		  <h1>Beautiful rings surround the planet!</h1>
 		</section>
 		  <section class="color-me" data-image="url(./saturn.gif)">
 		  <h1>Beware, there is a big storm at 75° N</h1>
@@ -36,6 +42,8 @@
 		  <h1>Place your order now!</h1>
 		  <a class ='order-button' href="mailto:SET.inc.orders@gmail.com?subject=Saturn%20Trip%20Order!">Begin</a>
 		</section>
+		<section class="small"></section>
+		<section class="smallest color-me" data-image="url(./hero.png)"></section>
 	</div>
 	
 
@@ -81,7 +89,7 @@ background-color:#FFFFFF;
 }
 
 #page-wrapper {
- 
+    background-image: "url(./hero.png)";
    height:100%; 
 			margin:0;
 			 background-position: center;
@@ -108,7 +116,12 @@ section {
   width: 90vw;
   text-align: center;
 }
-
+.small {
+min-height: 10vh
+}
+.smallest {
+min-height: 0vh
+}
 h1 {
 font-size: 48px;
 
